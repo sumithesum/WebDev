@@ -1,0 +1,7 @@
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\bin\Debug\Program.exe.config
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\bin\Debug\Program.exe
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\bin\Debug\Program.pdb
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\obj\Debug\Program.csproj.AssemblyReference.cache
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\obj\Debug\Program.exe
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Program\Program\obj\Debug\Program.pdb

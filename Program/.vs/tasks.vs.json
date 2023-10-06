@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Materie_Student",
+      "appliesTo": "Program/Materie_Student.cs",
+      "type": "launch"
+    }
+  ]
+}
