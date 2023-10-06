@@ -17,6 +17,13 @@ namespace Tema1
             this.Nume = nume;
 
         }
+        public Materie(Materie  a ) 
+        {
+            this.Nume = a.getNume();
+            this.durata = a.getDurata();
+            this.Descriere = a.getDescrire();
+
+        }
         public string getDurata()
         {
             return this.durata;
@@ -27,6 +34,18 @@ namespace Tema1
         public string getDescrire()
         {
             return this.Descriere;
+        }
+        public void setNume(string nume)
+        {
+            this.Nume = nume;
+        }
+        public void setDurata(string durata)
+        {
+            this.durata = durata;
+        }
+        public void setDescriere(string descriere)
+        {
+            this.Descriere = descriere;
         }
 
     }
@@ -52,7 +71,11 @@ namespace Tema1
             this.telefon = telefon;
             this.email = email;
             foreach (Materie i in lista)
-                this.materii.Add(i);
+            {
+                Materie j = new Materie(i);
+                this.materii.Add(j);
+                
+            }
         }
         public void afisare()
         {
@@ -61,11 +84,35 @@ namespace Tema1
             if (this.materii.Count == 0)
                 Console.WriteLine("Elevul nu are materii la care participa");
             else foreach (Materie i in this.materii)
-                    Console.WriteLine("Maateria : " + i.getNume() + " cu durata :" + i.getDurata() + " cu descrierea: " + i.getDescrire());
+                    Console.WriteLine("Materia : " + i.getNume() + " cu durata :" + i.getDurata() + " cu descrierea: " + i.getDescrire());
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
         }
+        public void adaugaListaMaterii(List<Materie> l)
+        {
+            foreach (Materie i in l)
+            {
+                Materie j = new Materie(i);
+                this.materii.Add(j);
+
+            }
+        }
+        public void adaugaListaMateriiSchimbatoare(List<Materie> l)
+        {
+            foreach (Materie i in l)            
+                this.materii.Add(i);
+
+        }
+        public void EliminareMaterie(Materie m)
+        {
+            this.materii.Remove(m);
+        }
+        public bool CautareMaterie(Materie m)
+        {
+            return   this.materii.Contains(m);
+        }
+
 
     }
 
