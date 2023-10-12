@@ -1,0 +1,4 @@
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Tema1\Tema1\obj\Debug\net7.0\Tema1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Tema1\Tema1\obj\Debug\net7.0\Tema1.AssemblyInfoInputs.cache
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Tema1\Tema1\obj\Debug\net7.0\Tema1.AssemblyInfo.cs
+C:\Users\sumur\Desktop\An II sem 1\WEB\Lab1\Tema1\Tema1\obj\Debug\net7.0\Tema1.csproj.CoreCompileInputs.cache

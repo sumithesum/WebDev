@@ -1,120 +1,95 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tema1
+﻿namespace Tema1
 {
-    internal class Materie
+
+    public class Server
     {
-        string durata;
-        string Nume, Descriere;
-        public Materie(string durata, string nume, string descriere)
+        string regiune;
+        int id, players;
+        int MaxPlayers;
+    
+
+    public Server(int id, string regiune, int players, int MaxPlayers)
         {
-            this.Descriere = descriere;
-            this.durata = durata;
-            this.Nume = nume;
+            this.id = id;
+            this.regiune = regiune;
+            
+            this.MaxPlayers = MaxPlayers;
+            if (players > MaxPlayers)
+                Console.WriteLine("Sunt prea mululti")
+            else
+                this.players = players;
+        }
+    public Server(int id, string regiune, int players)
+        {
+            this.MaxPlayers = 2000;
+            this.id = id;
+            this.regiune = regiune;
+            if(players > MaxPlayers)
+                Console.WriteLine("Sunt prea mululti")
+            else
+            this.players = players;
+            
 
         }
-        public Materie(Materie  a ) 
+    public void adaugarePlayer()
         {
-            this.Nume = a.getNume();
-            this.durata = a.getDurata();
-            this.Descriere = a.getDescrire();
+            if (players < MaxPlayers)
+                players++;
+            else
+                Console.WriteLine("Server full");
+        }
 
-        }
-        public string getDurata()
+    public void crestereMaxim(int i)
         {
-            return this.durata;
+            this.MaxPlayers += i;
         }
-        public string getNume() {
-            return this.Nume;
-        }
-        public string getDescrire()
+
+    public void SchimbareRegiune(string regiune)
         {
-            return this.Descriere;
+            this.regiune = regiune;
         }
-        public void setNume(string nume)
+
+    public void afisareServer()
         {
-            this.Nume = nume;
-        }
-        public void setDurata(string durata)
-        {
-            this.durata = durata;
-        }
-        public void setDescriere(string descriere)
-        {
-            this.Descriere = descriere;
+            Console.WriteLine("Serverul cu id-ul: " + this.id + " cu regiunea: " + this.regiune + " are " + this.players + " jucatori dintr-un maxim de " + this.MaxPlayers)
         }
 
     }
 
-    internal class Student
+    public class Joc
     {
-        public string Nume, Prenume, telefon, email;
-        public List<Materie> materii = new List<Materie>();
-        public Student(string nume, string prenume, string telefon, string email)
+        string nume, creatori, engine;
+        List<Server> servere = new List<Server>();
+        public Joc(string numa, string creatori , string engine)
         {
-            this.Nume = nume;
-            this.Prenume = prenume;
-            this.telefon = telefon;
-            this.email = email;
+            this.nume = numa;
+            this.creatori = creatori;
+            this.engine = engine;
+            List<Server> servere = new List<Server>();
+        }
+        public Joc(string numa, string creatori, string engine, List<Server> servere)
+        {
+            this.nume = numa;
+            this.creatori = creatori;
+            this.engine = engine;
+            foreach (Server i in servere)
+                this.servere.Add(i);
+        }
+        public void AdaugareServer(Server i)
+        {
+            this.servere.Add(i);
+        }
+        public void afisareServere()
+        {
+            Console.WriteLine("Jocul : " + this.nume + " facut de : " + this.creatori + " cu engine-ul : "+ this.engine + " are serverele: ")
+            foreach(Server i in this.servere)
+                i.afisareServer()
+        }
 
-
-
-        }
-        public Student(string nume, string prenume, string telefon, string email, List<Materie> lista)
-        {
-            this.Nume = nume;
-            this.Prenume = prenume;
-            this.telefon = telefon;
-            this.email = email;
-            foreach (Materie i in lista)
-            {
-                Materie j = new Materie(i);
-                this.materii.Add(j);
-                
-            }
-        }
-        public void afisare()
-        {
-            Console.WriteLine("Studentul cu numele :" + this.Nume + " si prenumele : " + this.Prenume + " telefonul : " + this.telefon + " emeilul: "+this.email);
-            Console.WriteLine();
-            if (this.materii.Count == 0)
-                Console.WriteLine("Elevul nu are materii la care participa");
-            else foreach (Materie i in this.materii)
-                    Console.WriteLine("Materia : " + i.getNume() + " cu durata :" + i.getDurata() + " cu descrierea: " + i.getDescrire());
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-        }
-        public void adaugaListaMaterii(List<Materie> l)
-        {
-            foreach (Materie i in l)
-            {
-                Materie j = new Materie(i);
-                this.materii.Add(j);
-
-            }
-        }
-        public void adaugaListaMateriiSchimbatoare(List<Materie> l)
-        {
-            foreach (Materie i in l)            
-                this.materii.Add(i);
-
-        }
-        public void EliminareMaterie(Materie m)
-        {
-            this.materii.Remove(m);
-        }
-        public bool CautareMaterie(Materie m)
-        {
-            return   this.materii.Contains(m);
-        }
 
 
     }
+
 
 
 
