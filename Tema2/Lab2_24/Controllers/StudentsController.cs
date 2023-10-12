@@ -19,6 +19,11 @@ namespace Lab2_24.Controllers
 
         // endpoint 
         // Get 
+        [HttpGet("getAllOrdered")]
+        public List<Student> GetAllOrdered()
+        {
+            return students.OrderBy(s => s.Age).ToList();
+        }
         [HttpGet]
         public List<Student> Get()
         {
@@ -33,7 +38,16 @@ namespace Lab2_24.Controllers
             students.Add(student);
             return students;
         }
-
+        [HttpDelete("{id}")]
+        public List<Student> Delete(int id)
+        {
+            var student = students.FirstOrDefault(s => s.Id == id);
+            if (student != null)
+            {
+                students.Remove(student);
+            }
+            return students;
+        }
 
         [HttpDelete]
         public List<Student> Delete(Student student)
